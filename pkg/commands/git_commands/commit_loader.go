@@ -59,6 +59,7 @@ type GetCommitsOptions struct {
 	Limit                bool
 	FilterPath           string
 	FilterAuthor         string
+	FilterGrep           string
 	IncludeRebaseCommits bool
 	RefName              string // e.g. "HEAD" or "my_branch"
 	RefForPushedStatus   string // the ref to use for determining pushed/unpushed status
@@ -517,6 +518,7 @@ func (self *CommitLoader) getLogCmd(opts GetCommitsOptions) oscommands.ICmdObj {
 		ArgIf(opts.FilterPath != "", "--follow").
 		Arg("--no-show-signature").
 		ArgIf(opts.RefToShowDivergenceFrom != "", "--left-right").
+		ArgIf(opts.FilterGrep != "", "--grep="+opts.FilterGrep).
 		Arg("--").
 		ArgIf(opts.FilterPath != "", opts.FilterPath).
 		ToArgv()

@@ -852,6 +852,8 @@ type TranslationSet struct {
 	BreakingChangesTitle                     string
 	BreakingChangesMessage                   string
 	BreakingChangesByVersion                 map[string]string
+	FilterGrepOption                         string
+	EnterGrep                                string
 }
 
 type Bisect struct {
@@ -2073,5 +2075,7 @@ gui:
 			"0.44.0": `- The gui.branchColors config option is deprecated; it will be removed in a future version. Please use gui.branchColorPatterns instead.
 - The automatic coloring of branches starting with "feature/", "bugfix/", or "hotfix/" has been removed; if you want this, it's easy to set up using the new gui.branchColorPatterns option.`,
 		},
+		FilterGrepOption: "Enter pattern to filter message by",
+		EnterGrep: "Enter pattern:",
 	}
 }

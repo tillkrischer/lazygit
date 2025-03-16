@@ -40,6 +40,7 @@ func (self *SubCommitsHelper) ViewSubCommits(opts ViewSubCommitsOpts) error {
 			Limit:                   true,
 			FilterPath:              self.c.Modes().Filtering.GetPath(),
 			FilterAuthor:            self.c.Modes().Filtering.GetAuthor(),
+			FilterGrep:              self.c.Modes().Filtering.GetGrep(),
 			IncludeRebaseCommits:    false,
 			RefName:                 opts.Ref.FullRefName(),
 			RefForPushedStatus:      opts.Ref.FullRefName(),
